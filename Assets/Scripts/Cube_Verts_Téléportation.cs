@@ -40,14 +40,14 @@ public class Téléportation : MonoBehaviour
             }
             if (other.CompareTag("LVL2"))
             {
-                _player.SetPositionAndRotation(_spawnPoint1.position, _rotaPoint2);
+                _player.SetPositionAndRotation(_spawnPoint2.position, _rotaPoint2);
                 Debug.Log("LVL2");
 
 
             }
             if (other.CompareTag("LVL3"))
             {
-                _player.SetPositionAndRotation(_spawnPoint1.position, _rotaPoint3);
+                _player.SetPositionAndRotation(_spawnPoint3.position, _rotaPoint3);
                 Debug.Log("LVL3");
 
             }
