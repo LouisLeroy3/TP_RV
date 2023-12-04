@@ -7,7 +7,7 @@ public class Slide : MonoBehaviour
     public float vitesseDeplacement = 10.0f;
     public float vitesseRotation = 50f;
     private Transform myTransform;
-    private Vector3 _posDeBase= new Vector3(10.0f,7.0f,10.0f);
+    private Vector3 _posDeBase= new Vector3(0f,1.0f,0.0f);
     private Quaternion test = new Quaternion(0,0,0,0);
     public float sensivity = 4.0f;
 
@@ -54,7 +54,7 @@ public class Slide : MonoBehaviour
 
 
         //si il y a une chute
-        if (myTransform.position.y<0)
+        if (myTransform.position.y<-1)
         {
             myTransform.SetPositionAndRotation(_posDeBase,test);
 

@@ -5,11 +5,14 @@ using UnityEngine;
 public class Main_Raycast : MonoBehaviour
 {
     public Transform mytransform;
+    public GameObject balle;
     public Ray ray;
+    int layer_mask;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //mytransform = GetComponent<Transform>();
+        int layer_mask = LayerMask.GetMask("Raycast");
     }
 
     // Update is called once per frame
@@ -19,13 +22,15 @@ public class Main_Raycast : MonoBehaviour
 
 
         RaycastHit hit;
-        Debug.DrawRay(mytransform.position, transform.forward * 10, Color.blue);
-        if (Input.GetKeyDown(KeyCode.Space))
+        Debug.DrawRay(mytransform.position, mytransform.forward * 100, Color.blue);
+        //Physics.Raycast(mytransform.position, -mytransform.up,layer_mask);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (Physics.Raycast(mytransform.position, transform.forward, out hit, 10))
+            if (Physics.Raycast(mytransform.position, mytransform.forward, out hit, Mathf.Infinity))
             {
                 Debug.Log("Le raycast touche un objet !");
-                Destroy(hit.transform.gameObject);
+                //Destroy(hit.transform.gameObject);
+                balle.transform.position=hit.point;
             }
         }
 

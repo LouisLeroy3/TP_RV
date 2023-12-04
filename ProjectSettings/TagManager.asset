@@ -7,11 +7,14 @@ TagManager:
   - LVL1
   - LVL2
   - LVL3
+  - Bleu
+  - Marron
+  - Noir
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - RayCast
   - Water
   - UI
   - 
