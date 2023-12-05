@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Timeline;
+
+
 
 public class Main_Raycast : MonoBehaviour
 {
@@ -11,6 +15,10 @@ public class Main_Raycast : MonoBehaviour
     public Transform _spawnTem;
  
     public GameObject prefabCylindre;
+
+    public TMPro.TextMeshProUGUI text;
+    public TMPro.TextMeshProUGUI time;
+
 
     private Quaternion rotationVide;
     public string[] _listeTagPlayer = new string[4];
@@ -42,10 +50,10 @@ public class Main_Raycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        AfficherTime();
        
         RaycastHit hit;
+        
         Debug.DrawRay(mytransform.position, mytransform.forward * 100, Color.blue);
         //Physics.Raycast(mytransform.position, -mytransform.up,layer_mask);
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -72,6 +80,36 @@ public class Main_Raycast : MonoBehaviour
         
 
     }
+    void AfficherTime()
+    {
+        float elapsedTime = Time.time;
+        string formattedTime = FormatTime(elapsedTime);
+
+        time.text = "Time :" + formattedTime;
+
+    }
+
+    string FormatTime(float timeInSeconds)
+    {
+        // Convert seconds to hours, minutes, and seconds
+        int hours = Mathf.FloorToInt(timeInSeconds / 3600);
+        int minutes = Mathf.FloorToInt((timeInSeconds % 3600) / 60);
+        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
+
+        // Format the time as HH:mm:ss
+        string formattedTime = string.Format("{0:D2}:{1:D2}:{2:D2}", hours, minutes, seconds);
+
+        return formattedTime;
+    }
+    void afficherListeAlea()
+    {
+        if(Time.time>3)
+        {
+
+        }
+
+    }
+
     void _listeAleatoire()
     {
         string[] _tagCree = new string[4];
