@@ -44,6 +44,7 @@ public class Main_Raycast : MonoBehaviour
         int layer_mask = LayerMask.GetMask("Default");
         _listeAleatoire();
         SpawnTem();
+        afficherListeAlea();
         
     }
 
@@ -72,7 +73,7 @@ public class Main_Raycast : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-                Debug.Log("tessttttt");
+                //Debug.Log("tessttttt");
                 //button.transform.gameObject = false;
                 SpawnRes();
 
@@ -103,10 +104,7 @@ public class Main_Raycast : MonoBehaviour
     }
     void afficherListeAlea()
     {
-        if(Time.time>3)
-        {
-
-        }
+        text.text = _listeTag[0];
 
     }
 
