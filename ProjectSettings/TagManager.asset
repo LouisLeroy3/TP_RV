@@ -10,6 +10,8 @@ TagManager:
   - Bleu
   - Marron
   - Noir
+  - Blanc
+  - Rouge
   layers:
   - Default
   - TransparentFX

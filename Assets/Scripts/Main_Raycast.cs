@@ -45,13 +45,15 @@ public class Main_Raycast : MonoBehaviour
         _listeAleatoire();
         SpawnTem();
         
+
     }
 
     // Update is called once per frame
     void Update()
     {
         AfficherTime();
-       
+        afficherListeAlea();
+
         RaycastHit hit;
         
         Debug.DrawRay(mytransform.position, mytransform.forward * 100, Color.blue);
@@ -82,6 +84,7 @@ public class Main_Raycast : MonoBehaviour
     }
     void AfficherTime()
     {
+        
         float elapsedTime = Time.time;
         string formattedTime = FormatTime(elapsedTime);
 
@@ -103,10 +106,20 @@ public class Main_Raycast : MonoBehaviour
     }
     void afficherListeAlea()
     {
-        if(Time.time>3)
+        int i = 0;
+        if (i < 4)
         {
-
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                text.text = _listeTag[i];
+                i++;
+            }
         }
+        else
+        {
+            text.text = "";
+        }
+        
 
     }
 
