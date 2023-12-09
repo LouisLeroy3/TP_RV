@@ -44,16 +44,15 @@ public class Main_Raycast : MonoBehaviour
         int layer_mask = LayerMask.GetMask("Default");
         _listeAleatoire();
         SpawnTem();
+        afficherListeAlea();
         
-
     }
 
     // Update is called once per frame
     void Update()
     {
         AfficherTime();
-        afficherListeAlea();
-
+       
         RaycastHit hit;
         
         Debug.DrawRay(mytransform.position, mytransform.forward * 100, Color.blue);
@@ -74,7 +73,7 @@ public class Main_Raycast : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-                Debug.Log("tessttttt");
+                //Debug.Log("tessttttt");
                 //button.transform.gameObject = false;
                 SpawnRes();
 
@@ -84,7 +83,6 @@ public class Main_Raycast : MonoBehaviour
     }
     void AfficherTime()
     {
-        
         float elapsedTime = Time.time;
         string formattedTime = FormatTime(elapsedTime);
 
@@ -106,20 +104,7 @@ public class Main_Raycast : MonoBehaviour
     }
     void afficherListeAlea()
     {
-        int i = 0;
-        if (i < 4)
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                text.text = _listeTag[i];
-                i++;
-            }
-        }
-        else
-        {
-            text.text = "";
-        }
-        
+        text.text = _listeTag[0];
 
     }
 
