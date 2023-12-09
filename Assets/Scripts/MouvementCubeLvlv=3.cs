@@ -8,6 +8,7 @@ public class MouvementCubeLvl3 : MonoBehaviour
     public float initialForce = 1000f;
     private Rigidbody rb;
     private Vector3 force;
+    public int rand;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +24,16 @@ public class MouvementCubeLvl3 : MonoBehaviour
 
 // Update is called once per frame
 void Update()
-    {
-        if(rb.velocity.y<1)
+    {   
+        
+        rand=Random.Range(0, 1000);
+       // velo=rb.velocity;
+        if(rand==1)
         {
-            //rb.AddForce(force * initialForce);
+            rb.AddForce(force*initialForce);
 
         }
+       // Debug.Log(velo);
        
 
 
