@@ -7,6 +7,9 @@ public class FiringBullet : MonoBehaviour
     public GameObject _bullet;
     public Transform _spawnPoint;
     public float _fireSpeed = 20;
+    private bool isShooting;
+
+    public Animator _bulletAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +21,15 @@ public class FiringBullet : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            
+            
             FireBullet();
-           
+            _bulletAnimator.SetBool("IsShooting", false);
+
+
         }
+
+
 
 
     }
@@ -39,10 +48,11 @@ public class FiringBullet : MonoBehaviour
 
     public void FireBullet()
     {
+        _bulletAnimator.SetBool("IsShooting", true);
         GameObject _spawnBullet=Instantiate(_bullet);
         _spawnBullet.transform.position= _spawnPoint.position;
         _spawnBullet.GetComponent<Rigidbody>().velocity = _spawnPoint.forward * _fireSpeed;
-        Destroy(_spawnBullet, 5);
+        Destroy(_spawnBullet, 1);
 
     }
 }

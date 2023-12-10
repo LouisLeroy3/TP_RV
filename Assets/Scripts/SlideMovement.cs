@@ -11,6 +11,8 @@ public class Slide : MonoBehaviour
     private Quaternion test = new Quaternion(0,0,0,0);
     public float sensivity = 4.0f;
 
+    public Animator animator;
+
     private float _rotationX=0.0f;
     private float _rotationY=0.0f;
     // Start is called before the first frame update
@@ -33,7 +35,7 @@ public class Slide : MonoBehaviour
             // Calculez le vecteur de déplacement
             Vector3 deplacement = new Vector3(deplacementHorizontal, 0f, deplacementVertical) * vitesseDeplacement * Time.deltaTime;
 
-
+            animator.SetFloat("Speed",Mathf.Abs(deplacementHorizontal)+Mathf.Abs(deplacementVertical));
 
             // Appliquez le déplacement en utilisant le Transform
             myTransform.Translate(deplacement);
