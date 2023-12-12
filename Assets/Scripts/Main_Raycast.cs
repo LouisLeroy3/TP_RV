@@ -17,7 +17,13 @@ public class Main_Raycast : MonoBehaviour
     public GameObject prefabCylindre;
 
     public TMPro.TextMeshProUGUI text;
+    public TMPro.TextMeshProUGUI _textTimeRes;
+
     public TMPro.TextMeshProUGUI time;
+    public float elapsedTime;
+    public string formattedTime;
+    public bool _menu=true;
+    public string _timeRes;
 
 
     private Quaternion rotationVide;
@@ -83,10 +89,25 @@ public class Main_Raycast : MonoBehaviour
     }
     void AfficherTime()
     {
-        float elapsedTime = Time.time;
-        string formattedTime = FormatTime(elapsedTime);
+        if (_menu == true)
+        {
+            elapsedTime = 0;
+            formattedTime = FormatTime(elapsedTime);
 
-        time.text = "Time :" + formattedTime;
+            time.text = "Time :" + formattedTime;
+        }
+        else
+        {
+            elapsedTime += Time.deltaTime;
+            formattedTime = FormatTime(elapsedTime);
+
+            time.text = "Time :" + formattedTime;
+            _timeRes = formattedTime;
+            
+            
+
+        }
+        _textTimeRes.text = "Résultat : " + _timeRes;
 
     }
 
