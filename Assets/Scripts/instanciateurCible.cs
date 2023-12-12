@@ -42,7 +42,7 @@ public class instanciateurCible : MonoBehaviour
         //Init Liste Tag
         _listeTag[0] = "Bleu";
         _listeTag[1] = "Noir";
-        _listeTag[2] = "Marron";
+        _listeTag[2] = "Rouge";
         _listeTag[3] = "Blanc";
         // init quaternion vide 
         rotationVide = new Quaternion(0, 0, 0, 0);
@@ -70,7 +70,7 @@ public class instanciateurCible : MonoBehaviour
             {
                 listeCube[i] = Instantiate(prefabCube, new Vector3(Random.Range(xmin1, xmax1), Random.Range(ymin1, ymax1), Random.Range(zmin1, zmax1)), rotationVide, _lVL1);
                 _tfCube[i] = listeCube[i].GetComponent<Transform>();
-                _tfCube[i].tag = _listeTag[Random.Range(0, 3)];
+                _tfCube[i].tag = _listeTag[Random.Range(0, 4)];
             }
         }
         if (LEVEL==_lVL3)
@@ -79,7 +79,7 @@ public class instanciateurCible : MonoBehaviour
             {
                 listeCube[i] = Instantiate(prefabCube_LVL3, new Vector3(Random.Range(xmin3, xmax3), Random.Range(ymin3, ymax3), Random.Range(zmin3, zmax3)), rotationVide, _lVL3);
                 _tfCube[i] = listeCube[i].GetComponent<Transform>();
-                _tfCube[i].tag = _listeTag[Random.Range(0, 3)];
+                _tfCube[i].tag = _listeTag[Random.Range(0, 4)];
             }
 
         }

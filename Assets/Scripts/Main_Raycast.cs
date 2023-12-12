@@ -13,6 +13,8 @@ public class Main_Raycast : MonoBehaviour
     public GameObject button;
     public Transform _spawnRes;
     public Transform _spawnTem;
+    GameObject[] _compSphere = new GameObject[4];
+    Renderer[] _rdCompSphere = new Renderer[4];
  
     public GameObject prefabCylindre;
 
@@ -45,6 +47,12 @@ public class Main_Raycast : MonoBehaviour
         _listeAleatoire();
         SpawnTem();
         afficherListeAlea();
+        for (int ik = 0; ik < 4; ik++)
+        {
+
+            _compSphere[ik] = GameObject.Find("Comp " + ik.ToString());
+            _rdCompSphere[ik] = _compSphere[ik].GetComponent<Renderer>();
+        }
         
     }
 
@@ -73,9 +81,11 @@ public class Main_Raycast : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-                //Debug.Log("tessttttt");
-                //button.transform.gameObject = false;
-                SpawnRes();
+            //Debug.Log("tessttttt");
+            //button.transform.gameObject = false
+            compareRes();
+
+            SpawnRes();
 
         }
         
@@ -152,5 +162,25 @@ public class Main_Raycast : MonoBehaviour
         }
 
     }
-}
+    bool compareRes()
+    {
+        bool res=true;
+        int ij=0;
+        //_rdCompSphere[1].material.SetColor("_Color", Color.green);
 
+        for (ij = 0; ij < 4; ij++)
+        {
+            if (_listeTag[ij].Equals(_listeTagPlayer[ij]))
+            {
+                _rdCompSphere[ij].material.SetColor("_Color", Color.green);
+            }
+            else
+            {
+                _rdCompSphere[ij].material.SetColor("_Color", Color.red);
+                res = false;
+
+            }
+        }
+        return (res);
+    }
+}

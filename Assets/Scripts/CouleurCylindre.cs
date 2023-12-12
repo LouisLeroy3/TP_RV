@@ -24,8 +24,8 @@ public class CouleurCylindre : MonoBehaviour
             case "Blanc":
                 _rdrCube.material.SetColor("_Color", Color.white);
                 break;
-            case "Marron":
-                _rdrCube.material.SetColor("_Color", Color.gray);
+            case "Rouge":
+                _rdrCube.material.SetColor("_Color", Color.red);
                 break;
         }
 
