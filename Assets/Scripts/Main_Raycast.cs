@@ -39,7 +39,7 @@ public class Main_Raycast : MonoBehaviour
 
     GameObject[] listeCubeRes = new GameObject[4];
     GameObject[] listeCubeTem = new GameObject[4];
-    int i = 0;
+    public int _indiceliste = 0;
     int j;
     int layer_mask;
     // Start is called before the first frame update
@@ -77,10 +77,12 @@ public class Main_Raycast : MonoBehaviour
             {
                 if (hit.transform.gameObject.layer == layer_mask)
                 {
-                    Debug.Log("Le raycast touche un objet !");
-                    _listeTagPlayer[i] = hit.transform.tag;
-                    i = i + 1;
-                    Destroy(hit.transform.gameObject);
+                    if (_indiceliste < 4)
+                    {
+                        _listeTagPlayer[_indiceliste] = hit.transform.tag;
+                        _indiceliste = _indiceliste + 1;
+                        Destroy(hit.transform.gameObject);
+                    }
                     //balle.transform.position=hit.point;
                 }
             }

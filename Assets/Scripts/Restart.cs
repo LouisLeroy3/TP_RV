@@ -34,8 +34,9 @@ public class Restart : MonoBehaviour
                 //_mainRaycast.elapsedTime = 0.0f;
                 //_mainRaycast.formattedTime = null;
                 _mainRaycast._menu = true;
+                _mainRaycast._indiceliste = 0;
                 //Debug.Log("Player");
-
+   
             }
 
 
