@@ -11,6 +11,7 @@ public class Téléportation : MonoBehaviour
     private Quaternion _rotaPoint1 = new Quaternion(0, -90, 0, 0);
     private Quaternion _rotaPoint2 = new Quaternion(0, 0, 0, 0);
     private Quaternion _rotaPoint3 = new Quaternion(0, 0, 0, 0);
+    private Main_Raycast _main;
 
 
   
@@ -23,6 +24,8 @@ public class Téléportation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _main = GetComponent<Main_Raycast>();
+
        
     }
     
@@ -35,20 +38,25 @@ public class Téléportation : MonoBehaviour
             if (other.CompareTag("LVL1"))
             {
                 _player.SetPositionAndRotation(_spawnPoint1.position, _rotaPoint1);
-                Debug.Log("LVL1");
+                _main._menu = false;
+                
 
             }
             if (other.CompareTag("LVL2"))
             {
                 _player.SetPositionAndRotation(_spawnPoint2.position, _rotaPoint2);
-                Debug.Log("LVL2");
+                _main._menu = false;
+
+               
 
 
             }
             if (other.CompareTag("LVL3"))
             {
                 _player.SetPositionAndRotation(_spawnPoint3.position, _rotaPoint3);
-                Debug.Log("LVL3");
+                _main._menu = false;
+
+              
 
             }
 

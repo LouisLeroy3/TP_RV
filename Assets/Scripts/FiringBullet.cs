@@ -37,9 +37,9 @@ public class FiringBullet : MonoBehaviour
     {
         if (other.CompareTag("LVL1"))
         {
-            Destroy(_bullet);
-            Destroy(other.gameObject);
-            Debug.Log("TESSSST");// à revoir
+           // Destroy(_bullet);
+            //Destroy(other.gameObject);
+           // Debug.Log("TESSSST");// à revoir
         }
 
 
